@@ -1,0 +1,10 @@
+# Django
+Django
+dj-database-url
+djangorestframework
+django-cors-headers
+
+gunicorn
+psycopg2-binary
+python-dotenv
+whitenoise
