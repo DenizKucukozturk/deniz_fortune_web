@@ -1,4 +1,4 @@
-from random import randint
+from random import choice
 
 from django.db import models
 
@@ -7,6 +7,7 @@ class FortuneManager(models.Manager):
     def random(self):
         from .models import Fortune
 
-        count = Fortune.objects.count()
-        random_index = randint(0, count - 1)
-        return self.all()[random_index]
+        ids = Fortune.objects.values_list('id', flat=True)
+        random_id = choice(ids)
+        random_obj = Fortune.objects.get(id=random_id)
+        return random_obj
