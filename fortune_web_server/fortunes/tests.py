@@ -4,7 +4,7 @@ from rest_framework.test import APITestCase
 from rest_framework import status
 
 
-class TestGetFortune(APITestCase):
+class FortuneTestCase(APITestCase):
     def setUp(self):
         self.client = APIClient()
         self.url = "/api/fortune/"
@@ -15,12 +15,6 @@ class TestGetFortune(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn("id", response.data)
         self.assertIn("text", response.data)
-
-
-class TestAddFortune(APITestCase):
-    def setUp(self):
-        self.client = APIClient()
-        self.url = "/api/fortune/add"
 
     def test_add_fortune__happy_path(self):
         data = {

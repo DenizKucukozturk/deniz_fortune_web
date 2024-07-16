@@ -32,5 +32,3 @@ sqlparse==0.5.0
     # via django
 typing-extensions==4.12.2
     # via dj-database-url
-whitenoise==6.7.0
-    # via -r requirements.in

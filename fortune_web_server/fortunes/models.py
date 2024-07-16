@@ -1,6 +1,6 @@
 from django.db import models
 
-from fortunes.managers import FortuneManager
+from .managers import FortuneManager
 
 
 class Fortune(models.Model):

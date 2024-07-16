@@ -1,10 +1,5 @@
-version: '3.6'
-
 networks:
-  fortune_web-internal:
-  fortune_web-external:
-    name: fortune_web-external
-    external: true
+  fortune_web_server-internal:
 
 volumes:
   dbdata:
@@ -13,7 +8,7 @@ services:
   db:
     image: postgres:14
     environment:
-      POSTGRES_DB: fortune_web
+      POSTGRES_DB: fortune_web_server
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     healthcheck:
@@ -24,7 +19,7 @@ services:
     volumes:
       - dbdata:/var/lib/postgresql/data/
     networks:
-      - fortune_web-internal
+      - fortune_web_server-internal
     ports:
       - "9432:5432"
 
@@ -45,5 +40,4 @@ services:
     ports:
       - "8000:8000"
     networks:
-      - fortune_web-internal
-      - fortune_web-external
+      - fortune_web_server-internal

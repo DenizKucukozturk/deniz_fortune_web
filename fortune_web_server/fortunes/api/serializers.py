@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from rest_framework.fields import CharField
-from fortunes.models import Fortune
+
+from ..models import Fortune
 
 
 class FortuneSerializer(serializers.ModelSerializer):
